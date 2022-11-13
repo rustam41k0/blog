@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+<head>
+	<title>Gaming</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="TheQuest Gaming Magazine Template">
+	<meta name="keywords" content="gaming, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicon -->
+	<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>
+
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+
+	<header class="header-section">
+		<a href="{% url 'home' %}" class="site-logo">
+			<img src="{% static 'img/gmblg_logo.png' %}" alt="logo">
+		</a>
+		<ul class="main-menu">
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li><a href="{% url 'characters' %}">Characters</a></li>
+			<li><a href="{% url 'game' %}">Games</a></li>
+			<li><a href="{% url 'news' %}">News</a></li>
+			<li><a href="{% url 'create_post' %}">Create post</a></li>
+		</ul>
+		<div style="float: right;">
+
+        {% if request.user.is_authenticated %}
+        <li><h2>{{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></h2></li>
+        {% else %}
+        <li><h2><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></h2></li>
+        {% endif %}
+
+    	</div>
+	</header>
+
+    {% block blog %}
+    {% endblock %}
+	<!-- Footer section -->
+	<div class="footer-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="footer-widget">
+						<div class="about-widget">
+							<img src="{% static 'img/gameblg6.png' %}" alt="">
+							<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo. Morbi id dictum quam, ut commodo.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<div class="footer-widget">
+						<h2 class="fw-title">Usfull Links</h2>
+						<ul>
+							<li><a href="">Games</a></li>
+							<li><a href="">testimonials</a></li>
+							<li><a href="">Reviews</a></li>
+							<li><a href="">Characters</a></li>
+							<li><a href="">Latest news</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<div class="footer-widget">
+						<h2 class="fw-title">Services</h2>
+						<ul>
+							<li><a href="">About us</a></li>
+							<li><a href="">Services</a></li>
+							<li><a href="">Become a writer</a></li>
+							<li><a href="">Jobs</a></li>
+							<li><a href="">FAQ</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<div class="footer-widget">
+						<h2 class="fw-title">Careeres</h2>
+						<ul>
+							<li><a href="">Donate</a></li>
+							<li><a href="">Services</a></li>
+							<li><a href="">Subscriptions</a></li>
+							<li><a href="">Careers</a></li>
+							<li><a href="">Our team</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget fw-latest-post">
+						<h2 class="fw-title">Usfull Links</h2>
+						<div class="latest-news-widget">
+							<div class="ln-item">
+								<div class="ln-text">
+									<div class="ln-date">April 1, 2019</div>
+									<h6>10 Amazing new games</h6>
+									<div class="ln-metas">
+										<div class="ln-meta">By Admin</div>
+										<div class="ln-meta">in <a href="#">Games</a></div>
+										<div class="ln-meta">3 Comments</div>
+									</div>
+								</div>
+							</div>
+							<div class="ln-item">
+								<div class="ln-text">
+									<div class="ln-date">April 1, 2019</div>
+									<h6>10 Amazing new games</h6>
+									<div class="ln-metas">
+										<div class="ln-meta">By Admin</div>
+										<div class="ln-meta">in <a href="#">Games</a></div>
+										<div class="ln-meta">3 Comments</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="social-links-warp">
+			<div class="container">
+				<div class="social-links">
+					<a href="https://www.instagram.com/mrbbyface"><i class="fa fa-instagram"></i><span>instagram</span></a>
+					<a href="https://t.me/pussiessaymeow"><i class="fa fa-pinterest"></i><span>telegram</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer section end -->
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/circle-progress.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>
